@@ -7,7 +7,7 @@ public class Product {
     private String supermercado;
     private String oferta;
     private String url;
-    private String imagen; //Retrieves an URL not a blob
+    private String imagen; //Retrieves a URL not a blob
 
     public Product(String idProducto, String nombre, double precio, String supermercado, String oferta, String url, String imagen) {
         this.idProducto = idProducto;
