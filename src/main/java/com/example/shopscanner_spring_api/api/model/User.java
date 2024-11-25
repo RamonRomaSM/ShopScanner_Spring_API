@@ -11,6 +11,7 @@ public class User {
     private String email;//TODO: desarrollar la funcionalidad del email
     private ArrayList<ShoppingList>shoppingLists;
 
+
     public User(String userId, String userName, String password, String email, ArrayList<ShoppingList> shoppingLists) {
         this.userId = userId;
         this.userName = userName;
@@ -47,4 +48,11 @@ public class User {
         this.email = email;
     }
 
+    public ArrayList<ShoppingList> getShoppingLists() {
+        return shoppingLists;
+    }
+
+    public void setShoppingLists(ArrayList<ShoppingList> shoppingLists) {
+        this.shoppingLists = shoppingLists;
+    }
 }

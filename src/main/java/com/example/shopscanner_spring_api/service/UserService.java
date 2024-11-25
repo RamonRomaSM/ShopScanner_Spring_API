@@ -13,12 +13,16 @@ public class UserService {
 
 
     public User getUser(String nombre, String passw){
-        ArrayList<ShoppingList> shoppingLists = new ArrayList<>();
-        ShoppingList aa = new ShoppingList("0","0","lista 1",null,12.2,"20241125");
         Product a= new Product("0","producto 1",12.2,"mercadona","no","URL","imagen");
+        ArrayList<Product> products = new ArrayList<>();
+        products.add(a);
 
 
+        ArrayList<ShoppingList> shoppingLists = new ArrayList<>();
+        ShoppingList aa = new ShoppingList("0","0","lista 1",products,12.2,"20241125");
         shoppingLists.add(aa);
-        return new User("0","Ramon","1234","email",shoppingLists);
+
+
+        return new User("0","Rasdfsdmon","1234","email",shoppingLists);
     }
 }

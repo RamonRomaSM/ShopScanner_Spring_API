@@ -17,7 +17,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/user")
+    @GetMapping("/login")
     public User getUser(@RequestParam String nombre, @RequestParam String passw){
         return userService.getUser(nombre,passw);
     }
