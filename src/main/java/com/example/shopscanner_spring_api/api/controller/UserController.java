@@ -22,5 +22,10 @@ public class UserController {
         return userService.getUser(nombre,passw);
     }
 
+    @GetMapping("/register")
+    public boolean registerUser(@RequestParam String nombre, @RequestParam String passw, @RequestParam(required = false) String email){
+        return userService.registerUser(nombre,passw,email);
+    }
+
 
 }

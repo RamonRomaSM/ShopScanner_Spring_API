@@ -18,15 +18,15 @@ public class SoppingListController {
     }
     @GetMapping("/modifyList")
     public void modificaLista(@RequestParam String userId, @RequestParam ShoppingList lista){
-
+        shoppingListService.updateShoppingList(lista);
     }
     @GetMapping("/deleteList")
-    public void eliminaLista(@RequestParam String userId, @RequestParam ShoppingList lista){
-
+    public void eliminaLista(@RequestParam String userId, @RequestParam String idLista){
+        shoppingListService.removeShoppingList(idLista);
     }
     @GetMapping("/addList")
-    public void addLista(@RequestParam String userId){
-
+    public void addLista(@RequestParam String userId, @RequestParam ShoppingList lista){
+        shoppingListService.addShoppingList(lista);
     }
 
 

@@ -8,7 +8,7 @@ public class User {
     private String userId;
     private String userName;
     private String password;
-    private String email;//TODO: desarrollar la funcionalidad del email
+    private String email;
     private ArrayList<ShoppingList>shoppingLists;
 
 
