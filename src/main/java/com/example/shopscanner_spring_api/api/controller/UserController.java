@@ -21,4 +21,6 @@ public class UserController {
     public User getUser(@RequestParam String nombre, @RequestParam String passw){
         return userService.getUser(nombre,passw);
     }
+
+
 }
