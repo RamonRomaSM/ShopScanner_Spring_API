@@ -9,8 +9,8 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class GenericService {
-    private Connection connection;
-    private Properties properties;
+    protected Connection connection;
+    protected Properties properties;
 
     public GenericService() {
         try {
