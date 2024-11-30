@@ -1,0 +1,8 @@
+CREATE TABLE "ShopScanner_Schema"."PRODUCT_LIST"
+(
+    "LIST_ID" text NOT NULL,
+    "PRODUCT_ID" text NOT NULL
+);
+
+ALTER TABLE IF EXISTS "ShopScanner_Schema"."PRODUCT_LIST"
+    OWNER to postgres;

@@ -1,0 +1,11 @@
+CREATE TABLE "ShopScanner_Schema"."USERS"
+(
+    "ID" serial NOT NULL,
+    "NAME" text NOT NULL,
+    "PASSW" text NOT NULL,
+    "MAIL" text,
+    PRIMARY KEY ("ID")
+);
+
+ALTER TABLE IF EXISTS "ShopScanner_Schema"."USERS"
+    OWNER to postgres;

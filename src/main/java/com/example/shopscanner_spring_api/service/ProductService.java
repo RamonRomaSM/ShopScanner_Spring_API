@@ -7,7 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class ProductService {
+public class ProductService extends GenericService{
+
+    public ProductService() {
+        super();
+    }
 
     public Product getProduct(String idProducto) {
         return null;

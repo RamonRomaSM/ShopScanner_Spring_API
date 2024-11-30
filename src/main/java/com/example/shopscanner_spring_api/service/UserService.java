@@ -9,8 +9,10 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 
 @Service
-public class UserService {
-
+public class UserService extends GenericService{
+    public UserService(){
+        super();
+    }
     public User getUser(String nombre, String passw){
         Product a= new Product("0","producto 1",12.2,"mercadona","no","URL","imagen");
         ArrayList<Product> products = new ArrayList<>();
