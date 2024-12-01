@@ -1,0 +1,45 @@
+create table "ShopScanner_Schema"."products"
+(
+    "id" text not null,
+    "name" text not null,
+    "price" double precision not null,
+    "seller" text not null,
+    "sale" text,
+    "url" text not null,
+    "image" text not null,
+    primary key ("id")
+);
+
+alter table if exists "ShopScanner_Schema"."products"
+    owner to postgres;
+create table "ShopScanner_Schema"."shopping_lists"
+(
+    "user_id" numeric not null,
+    "list_id" serial not null,
+    "name" text not null,
+    "last_modified" date not null,
+    "total_price" double precision not null default 0,
+    primary key ("list_id")
+);
+
+alter table if exists "ShopScanner_Schema"."shopping_lists"
+    owner to postgres;
+create table "ShopScanner_Schema"."users"
+(
+    "id" serial not null,
+    "name" text not null,
+    "passw" text not null,
+    "mail" text,
+    primary key ("id")
+);
+
+alter table if exists "ShopScanner_Schema"."users"
+    owner to postgres;
+create table "ShopScanner_Schema"."product_list"
+(
+    "list_id" text not null,
+    "product_id" text not null
+);
+
+alter table if exists "ShopScanner_Schema"."product_list"
+    owner to postgres;
