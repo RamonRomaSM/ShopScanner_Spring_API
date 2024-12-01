@@ -61,7 +61,11 @@ public class UserService extends GenericService{
             ps.setString(1,nombre);
             ps.setString(2,passw);
             ps.setString(3,email);
-            return ps.execute();
+
+            boolean resp = ps.execute();
+            ps.close();
+
+            return resp;
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
