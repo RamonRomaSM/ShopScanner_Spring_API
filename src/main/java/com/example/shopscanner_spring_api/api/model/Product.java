@@ -8,8 +8,9 @@ public class Product {
     private String oferta;
     private String url;
     private String imagen; //Retrieves a URL not a blob
+    private int cantidad;
 
-    public Product(String idProducto, String nombre, double precio, String supermercado, String oferta, String url, String imagen) {
+    public Product(String idProducto, String nombre, double precio, String supermercado, String oferta, String url, String imagen, int cantidad) {
         this.idProducto = idProducto;
         this.nombre = nombre;
         this.precio = precio;
@@ -17,6 +18,7 @@ public class Product {
         this.oferta = oferta;
         this.url = url;
         this.imagen =imagen;
+        this.cantidad = cantidad;
     }
 
     public String getIdProducto() {
@@ -73,5 +75,13 @@ public class Product {
 
     public void setImagen(String imagen) {
         this.imagen = imagen;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
     }
 }

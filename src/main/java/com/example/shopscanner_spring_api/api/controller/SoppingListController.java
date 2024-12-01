@@ -29,9 +29,4 @@ public class SoppingListController {
         shoppingListService.addShoppingList(lista);
     }
 
-    @GetMapping("/getList")
-    public void getList(@RequestParam ShoppingList lista){
-        shoppingListService.getShoppingList(lista);
-    }
-
 }

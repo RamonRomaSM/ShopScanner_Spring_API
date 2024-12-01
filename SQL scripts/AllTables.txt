@@ -38,7 +38,8 @@ alter table if exists "ShopScanner_Schema"."users"
 create table "ShopScanner_Schema"."product_list"
 (
     "list_id" text not null,
-    "product_id" text not null
+    "product_id" text not null,
+    "quantity" numeric not null default 1
 );
 
 alter table if exists "ShopScanner_Schema"."product_list"

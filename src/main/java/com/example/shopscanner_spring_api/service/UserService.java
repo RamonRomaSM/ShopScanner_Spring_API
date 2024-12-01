@@ -23,7 +23,7 @@ public class UserService extends GenericService{
             ps.setString(2, passw);
             ResultSet rs = ps.executeQuery();
 
-            if (!rs.next()){return new User(null,null,null,null,null);}//In case user does not exist
+            if (!rs.next()){return null;}//In case user does not exist
 
             String userId = rs.getString("id");
             String name = rs.getString("name");
