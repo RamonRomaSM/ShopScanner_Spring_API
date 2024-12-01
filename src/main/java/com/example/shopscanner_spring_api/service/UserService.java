@@ -71,5 +71,4 @@ public class UserService extends GenericService{
             return false;
         }
     }
-
 }
