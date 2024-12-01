@@ -15,7 +15,6 @@ public class ShoppingListService extends GenericService{
     }
 
     public boolean addShoppingList(ShoppingList shoppingList) {
-        //TODO: añadir lista y relacion de productos
         String sql="";
         try {
             PreparedStatement ps = this.connection.prepareStatement(sql);
