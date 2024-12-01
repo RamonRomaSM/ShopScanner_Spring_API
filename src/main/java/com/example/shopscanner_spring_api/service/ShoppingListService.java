@@ -14,7 +14,7 @@ public class ShoppingListService extends GenericService{
         super();
     }
 
-    public boolean addShoppingList(ShoppingList shoppingList) {
+    public boolean getShoppingList(ShoppingList shoppingList) {
         String sql="";
         try {
             PreparedStatement ps = this.connection.prepareStatement(sql);
@@ -29,6 +29,20 @@ public class ShoppingListService extends GenericService{
         return false;
     }
 
+    public boolean addShoppingList(ShoppingList shoppingList) {
+        String sql="";
+        try {
+            PreparedStatement ps = this.connection.prepareStatement(sql);
+
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+
+        return false;
+    }
     public boolean removeShoppingList(String idLista) {
         return false;
     }
