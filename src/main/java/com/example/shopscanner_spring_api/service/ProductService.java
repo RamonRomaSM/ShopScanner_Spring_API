@@ -50,7 +50,7 @@ public class ProductService extends GenericService{
     //NOTE: the accepted sort methods will be: id (default), priceAsc, priceDesc
     public ArrayList<Product> getPage(int page, int size, String search, String sort, String seller) {
         //First we build the sql sentence
-        String sql = "SELECT * FROM \"ShopScanner_Schema\".products LIMIT ? OFFSET ? WHERE name like ?";
+        String sql = "SELECT * FROM \"ShopScanner_Schema\".products  WHERE name like ?";
         if (!seller.equals("ANY")){sql+=" AND seller LIKE ?";}
         if (sort.equals("ANY")){sql+=" ORDER BY id";}
         else{
@@ -63,17 +63,23 @@ public class ProductService extends GenericService{
                     break;
             }
         }
-        sql+=";";
+        sql+=" LIMIT ? OFFSET ?;";
         try {
             ArrayList<Product> products = new ArrayList<>();
             PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setInt(1,size);
-            ps.setInt(2,size*page);
-            ps.setString(3,search);
-            if (!seller.equals("ANY")){ps.setString(4,seller);};
+            ps.setString(1,"%"+search+"%");
+            if (!seller.equals("ANY")){
+                ps.setString(2,seller);
+                ps.setInt(3,size);
+                ps.setInt(4,size*page);
+            }
+            else{
+                ps.setInt(2, size);
+                ps.setInt(3, size * page);
+            }
 
             ResultSet rs = ps.executeQuery();
-            ps.close();
+
             while (rs.next()){
                 String id = rs.getString("id");
                 String name = rs.getString("name");
@@ -86,6 +92,7 @@ public class ProductService extends GenericService{
                 Product act = new Product(id,name,price,pseller,sale,url,image,1);
                 products.add(act);
             }
+            ps.close();
             rs.close();
             return products;
         }
