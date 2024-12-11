@@ -30,6 +30,7 @@ public class ShoppingListService extends GenericService{
         return false;
     }
     public boolean removeShoppingList(String idLista) {
+
         return false;
     }
 
