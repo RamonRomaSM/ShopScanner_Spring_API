@@ -17,16 +17,20 @@ public class SoppingListController {
         this.shoppingListService = shoppingListService;
     }
     @GetMapping("/modifyList")
-    public void modificaLista(@RequestParam ShoppingList lista){
+    public void modifycaList(@RequestParam ShoppingList lista){
         shoppingListService.updateShoppingList(lista);
     }
     @GetMapping("/deleteList")
-    public void eliminaLista(@RequestParam String idLista){
+    public void deleteList(@RequestParam String idLista){
         shoppingListService.removeShoppingList(idLista);
     }
     @GetMapping("/addList")
-    public void addLista(@RequestParam ShoppingList lista){
+    public void addList(@RequestParam ShoppingList lista){
         shoppingListService.addShoppingList(lista);
+    }
+    @GetMapping("/getList")
+    public void getList(@RequestParam String idLista){
+        shoppingListService.getShoppingList(idLista);
     }
 
 }

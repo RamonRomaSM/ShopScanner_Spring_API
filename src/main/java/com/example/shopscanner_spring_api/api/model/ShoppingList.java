@@ -6,17 +6,17 @@ public class ShoppingList {
     private String listaId;//userId + nombre
     private String userId;
     private String name;
-    private ArrayList<Product>productos;
-    private double precio;
-    private String ultimaModificacion;//TODO: modificar en updates e inserts
+    private ArrayList<Product>products;
+    private double price;
+    private String last_modified;
 
     public ShoppingList (String listaId, String userId, String name, ArrayList<Product> productos, double precio, String ultimaModificacion){
         this.listaId = listaId;
         this.userId = userId;
         this.name = name;
-        this.productos = productos;
-        this.precio = precio;
-        this.ultimaModificacion = ultimaModificacion;
+        this.products = productos;
+        this.price = precio;
+        this.last_modified = ultimaModificacion;
     }
 
     public String getListaId() {
@@ -43,27 +43,27 @@ public class ShoppingList {
         this.name = name;
     }
 
-    public ArrayList<Product> getProductos() {
-        return productos;
+    public ArrayList<Product> getProducts() {
+        return products;
     }
 
-    public void setProductos(ArrayList<Product> productos) {
-        this.productos = productos;
+    public void setProducts(ArrayList<Product> products) {
+        this.products = products;
     }
 
-    public double getPrecio() {
-        return precio;
+    public double getPrice() {
+        return price;
     }
 
-    public void setPrecio(double precio) {
-        this.precio = precio;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
-    public String getultimaModificacion() {
-        return ultimaModificacion;
+    public String getLast_modified() {
+        return last_modified;
     }
 
-    public void setultimaModificacion(String ultimaModificacion) {
-        this.ultimaModificacion = ultimaModificacion;
+    public void setLast_modified(String last_modified) {
+        this.last_modified = last_modified;
     }
 }

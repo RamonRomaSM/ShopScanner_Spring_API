@@ -65,7 +65,11 @@ public class UserService extends GenericService{
             ps.setString(2,passw);
             ps.setString(3,email);
 
-            ps.execute();
+            if(!ps.execute()){
+                connection.rollback();
+                ps.close();
+                return false;
+            }
             ps.close();
 
             return true;
