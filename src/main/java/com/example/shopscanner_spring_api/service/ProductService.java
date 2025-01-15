@@ -103,7 +103,7 @@ public class ProductService extends GenericService{
 
     }
 
-    public ArrayList<Product> getShoppingListProducts(int shoppingListId) {
+    public ArrayList<Product> getShoppingListProducts(int shoppingListId) {//I am asuming a list wont be too heavy to handle, so no pagination needed
         try {
             ArrayList<Product>products = new ArrayList<>();
             String sql="SELECT * FROM \"ShopScanner_Schema\".shopping_lists WHERE list_id like ?;";

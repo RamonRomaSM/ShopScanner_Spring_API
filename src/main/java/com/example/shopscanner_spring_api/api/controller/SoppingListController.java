@@ -28,9 +28,5 @@ public class SoppingListController {
     public void addList(@RequestParam ShoppingList lista){
         shoppingListService.addShoppingList(lista);
     }
-    @GetMapping("/getList")
-    public void getList(@RequestParam String idLista){
-        shoppingListService.getShoppingList(idLista);
-    }
 
 }

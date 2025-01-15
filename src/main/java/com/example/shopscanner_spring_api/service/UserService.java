@@ -13,7 +13,7 @@ public class UserService extends GenericService{
     public UserService(){
         super();
     }
-    //NOTE: I don't want the products of a list until the app wants to show a specific list
+    //NOTE: I don't want the products of a list until the client asks me for an specific list (that would be too heavy)
     public User getUser(String nombre, String passw){
         try {
             //First we ask for the basic user info

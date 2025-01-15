@@ -64,8 +64,4 @@ public class ShoppingListService extends GenericService{
     public boolean updateShoppingList(ShoppingList shoppingList) {
         return false;
     }
-
-    public boolean getShoppingList(String idLista) {
-        return false;
-    }
 }
