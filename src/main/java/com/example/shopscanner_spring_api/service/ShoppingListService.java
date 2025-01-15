@@ -51,17 +51,64 @@ public class ShoppingListService extends GenericService{
             }
             return true;
         } catch (SQLException e) {
-
             e.printStackTrace();
             return false;
         }
     }
     public boolean removeShoppingList(String idLista) {
+        String sql="DELETE FROM \"ShopScanner_Schema\".shopping_lists WHERE list_id LIKE ?";
 
-        return false;
+        PreparedStatement ps;
+        try {
+            //Primero añadir los datos de la lista
+            ps = this.connection.prepareStatement(sql);
+            ps.setString(1, idLista);
+            if(!ps.execute()){
+                ps.close();
+                connection.rollback();
+                return false;
+            }
+            ps.close();
+            //Ahora van los productos
+            sql="DELETE FROM \"ShopScanner_Schema\".product_list WHERE list_id LIKE ?";
+            ps = this.connection.prepareStatement(sql);
+            ps.setString(1,idLista);
+            if(!ps.execute()){
+                ps.close();
+                connection.rollback();
+                return false;
+            }
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+
     }
 
     public boolean updateShoppingList(ShoppingList shoppingList) {
+        String sql="UPDATE \"ShopScanner_Schema\".product_list WHERE list_id LIKE ? AND product_id LIKE ?";
+        String sql_delete="DELETE FROM \"ShopScanner_Schema\".product_list WHERE list_id LIKE ? AND product_id LIKE ?";
+
+        PreparedStatement ps;
+        try {
+            for(Product product : shoppingList.getProducts()){//If the quantity of a product s 0, means that is no longer inside of the list
+                ps = (product.getCantidad()==0)? this.connection.prepareStatement(sql_delete):this.connection.prepareStatement(sql);
+                ps = this.connection.prepareStatement(sql);
+                ps.setString(1,shoppingList.getListaId());
+                ps.setString(2,product.getIdProducto());
+                if(!ps.execute()){
+                    ps.close();
+                    connection.rollback();
+                    return false;
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
         return false;
     }
 }
